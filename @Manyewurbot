@@ -1,0 +1,17 @@
+import telebot
+
+# Replace with your new token
+BOT_TOKEN = 8062496516:AAFFThBNEIcI7G3dh9sMRQwWA-AQU0Oah18
+bot = telebot.TeleBot(BOT_TOKEN)
+
+# Handle the /start command
+@bot.message_handler(commands=["start"])
+def send_welcome(message):
+    bot.reply_to(message, "Welcome to Manyewurbot!")
+
+# Poll the bot
+try:
+    print("Bot is starting...")
+    bot.polling()
+except Exception as e:
+    print(f"Error: {e}")
